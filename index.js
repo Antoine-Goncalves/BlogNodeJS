@@ -24,20 +24,9 @@ app.use(engine);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const validateCreatePostMiddleware = (req, res, next) => {
-  if (
-    !req.files.image ||
-    !req.body.username ||
-    !req.body.title ||
-    !req.body.subtitle ||
-    !req.body.content
-  ) {
-    return res.redirect("/post/new");
-  }
-  next();
-};
+const storePost = require("./middleware/storePost");
 
-app.use("/post/store", validateCreatePostMiddleware);
+app.use("/post/store", storePost);
 
 app.set("views", `${__dirname}/views`);
 
