@@ -32,6 +32,8 @@ app.get("/post/new", (req, res) => {
   res.render("create");
 });
 
+app.post("/post/store", (req, res) => {});
+
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
