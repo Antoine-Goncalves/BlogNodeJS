@@ -28,6 +28,10 @@ app.get("/post", (req, res) => {
   res.render("post");
 });
 
+app.get("/post/new", (req, res) => {
+  res.render("create");
+});
+
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
