@@ -2,6 +2,7 @@ const path = require("path");
 const { engine } = require("express-edge");
 const express = require("express");
 const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 
 const mongoose = require("mongoose");
 
@@ -14,6 +15,7 @@ mongoose.connect("mongodb://localhost/BlogNodeJS", {
   useNewUrlParser: true
 });
 
+app.use(fileUpload());
 app.use(express.static("public"));
 app.use(engine);
 
@@ -37,9 +39,15 @@ app.get("/post/new", (req, res) => {
   res.render("create");
 });
 
-app.post("/post/store", async (req, res) => {
-  await Post.create(req.body, (error, post) => {
-    res.redirect("/");
+app.post("/post/store", (req, res) => {
+  const { image } = req.files;
+
+  image.mv(path.resolve(__dirname, "public/post", image.name), error => {
+    console.log("image.name >>>", image.name);
+    console.log(error);
+    Post.create(req.body, (error, post) => {
+      res.redirect("/");
+    });
   });
 });
 
