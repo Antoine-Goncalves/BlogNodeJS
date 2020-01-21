@@ -7,7 +7,11 @@ mongoose.connect("mongodb://localhost/test-BlogNodeJS", {
   useNewUrlParser: true
 });
 
-Post.find({}, (error, posts) => {
+// Post.find({}, (error, posts) => {
+//   console.log(error, posts);
+// });
+
+Post.findById("5e26e9e018188b2f9cefea76", (error, posts) => {
   console.log(error, posts);
 });
 
