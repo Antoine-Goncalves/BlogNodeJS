@@ -7,6 +7,10 @@ mongoose.connect("mongodb://localhost/test-BlogNodeJS", {
   useNewUrlParser: true
 });
 
+Post.find({}, (error, posts) => {
+  console.log(error, posts);
+});
+
 // Post.create(
 //   {
 //     title: "Mon premier post sur le blog",
