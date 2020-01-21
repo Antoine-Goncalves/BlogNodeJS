@@ -2,6 +2,10 @@ const path = require("path");
 const { engine } = require("express-edge");
 const express = require("express");
 
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/BlogNodeJS");
+
 const app = new express();
 
 app.use(express.static("public"));
