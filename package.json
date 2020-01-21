@@ -1,0 +1,27 @@
+{
+  "name": "BlogNodeJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antoine-Goncalves/BlogNodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Antoine-Goncalves/BlogNodeJS/issues"
+  },
+  "homepage": "https://github.com/Antoine-Goncalves/BlogNodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-edge": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
