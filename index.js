@@ -33,20 +33,20 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-app.get("/post/:id", async (req, res) => {
-  const post = await Post.findById(req.params.id);
-  res.render("post", {
-    post
-  });
-});
-
 app.get("/post/new", (req, res) => {
   res.render("create");
 });
 
-app.post("/post/store", (req, res) => {
-  Post.create(req.body, (error, post) => {
+app.post("/post/store", async (req, res) => {
+  await Post.create(req.body, (error, post) => {
     res.redirect("/");
+  });
+});
+
+app.get("/post/:id", async (req, res) => {
+  const post = await Post.findById(req.params.id);
+  res.render("post", {
+    post
   });
 });
 
