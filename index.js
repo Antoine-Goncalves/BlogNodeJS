@@ -43,8 +43,6 @@ app.post("/post/store", (req, res) => {
   const { image } = req.files;
 
   image.mv(path.resolve(__dirname, "public/post", image.name), error => {
-    console.log("image.name >>>", image.name);
-    console.log(error);
     Post.create(req.body, (error, post) => {
       res.redirect("/");
     });
