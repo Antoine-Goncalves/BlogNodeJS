@@ -4,7 +4,7 @@ const express = require("express");
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:4000/BlogNodeJS", {
+mongoose.connect("mongodb://localhost/BlogNodeJS", {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
