@@ -7,6 +7,7 @@ const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
 
 const Post = require("./database/models/Post");
+const createPostController = require("./controllers/createPost");
 
 const app = new express();
 
@@ -50,9 +51,7 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-app.get("/post/new", (req, res) => {
-  res.render("create");
-});
+app.get("/post/new", createPostController);
 
 app.post("/post/store", (req, res) => {
   const { image } = req.files;
