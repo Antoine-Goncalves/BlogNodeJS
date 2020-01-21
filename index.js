@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 
 const Post = require("./database/models/Post");
 const createPostController = require("./controllers/createPost");
+const homePageController = require("./controllers/homePage");
+const storePostController = require("./controllers/storePost");
 
 const app = new express();
 
@@ -40,12 +42,7 @@ app.use("/post/store", validateCreatePostMiddleware);
 
 app.set("views", `${__dirname}/views`);
 
-app.get("/", async (req, res) => {
-  const posts = await Post.find({});
-  res.render("index", {
-    posts
-  });
-});
+app.get("/", homePageController);
 
 app.get("/about", (req, res) => {
   res.render("about");
@@ -53,21 +50,7 @@ app.get("/about", (req, res) => {
 
 app.get("/post/new", createPostController);
 
-app.post("/post/store", (req, res) => {
-  const { image } = req.files;
-
-  image.mv(path.resolve(__dirname, "public/post", image.name), error => {
-    Post.create(
-      {
-        ...req.body,
-        image: `/post/${image.name}`
-      },
-      (error, post) => {
-        res.redirect("/");
-      }
-    );
-  });
-});
+app.post("/post/store", storePostController);
 
 app.get("/post/:id", async (req, res) => {
   const post = await Post.findById(req.params.id);
