@@ -7,13 +7,13 @@ mongoose.connect("mongodb://localhost/test-BlogNodeJS", {
   useNewUrlParser: true
 });
 
-Post.create(
-  {
-    title: "Mon premier post sur le blog",
-    description: "Description du post",
-    content: "Lorem Ipsum content."
-  },
-  (error, post) => {
-    console.log(error, post);
-  }
-);
+// Post.create(
+//   {
+//     title: "Mon premier post sur le blog",
+//     description: "Description du post",
+//     content: "Lorem Ipsum content."
+//   },
+//   (error, post) => {
+//     console.log(error, post);
+//   }
+// );
