@@ -38,14 +38,6 @@ app.post("/post/store", storePostController);
 
 app.get("/post/:id", getPostController);
 
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
-
 app.listen(4000, () => {
   console.log("App listening on port 4000");
 });
