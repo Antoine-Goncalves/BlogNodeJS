@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
+const connectMongo = require("connect-mongo");
 
 const mongoose = require("mongoose");
 
