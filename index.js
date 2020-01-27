@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
+const connectFlash = require("connect-flash");
 
 const mongoose = require("mongoose");
 
