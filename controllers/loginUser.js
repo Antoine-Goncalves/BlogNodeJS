@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     if (user) {
       // compare user password.
 
-      bcrypt.compare(password, user.password, (error, result) => {
+      bcrypt.compare(password, user.password, (error, same) => {
         if (same) {
           // store user session
 
@@ -22,12 +22,4 @@ module.exports = (req, res) => {
       return res.redirect("/auth/login");
     }
   });
-
-  // if user password is correct, then, login user.
-
-  // else
-
-  // redirect user back.
-
-  res.redirect("/");
 };
