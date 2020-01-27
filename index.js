@@ -66,13 +66,13 @@ app.get("/post/:id", getPostController);
 
 // Register
 
-app.get("/auth/register", createUserController);
-app.post("/users/register", storeUserController);
+app.get("/auth/register", redirectIfAuthenticated, createUserController);
+app.post("/users/register", redirectIfAuthenticated, storeUserController);
 
 // Login
 
-app.get("/auth/login", loginController);
-app.post("/users/login", loginUserController);
+app.get("/auth/login", redirectIfAuthenticated, loginController);
+app.post("/users/login", redirectIfAuthenticated, loginUserController);
 
 app.listen(4000, () => {
   console.log("App listening on port 4000");
