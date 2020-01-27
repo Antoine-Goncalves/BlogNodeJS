@@ -48,6 +48,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const storePost = require("./middleware/storePost");
+const auth = require("./middleware/auth");
 
 app.use("/post/store", storePost);
 
