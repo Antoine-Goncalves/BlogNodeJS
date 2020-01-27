@@ -30,6 +30,8 @@ mongoose.connect("mongodb://localhost/BlogNodeJS", {
   useNewUrlParser: true
 });
 
+app.use(connectFlash());
+
 const mongoStore = connectMongo(expressSession);
 
 app.use(
