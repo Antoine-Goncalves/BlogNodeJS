@@ -48,6 +48,12 @@ app.use(fileUpload());
 app.use(express.static("public"));
 app.use(engine);
 
+app.use("*", (req, res, next) => {
+  edge.global("auth", req.session.userId);
+
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
