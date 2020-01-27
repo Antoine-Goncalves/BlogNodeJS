@@ -9,7 +9,7 @@ module.exports = (req, res) => {
       {
         ...req.body,
         image: `/post/${image.name}`,
-        auth: req.session.userId
+        author: req.session.userId
       },
       (error, post) => {
         res.redirect("/");
