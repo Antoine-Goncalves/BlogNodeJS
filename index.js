@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { engine } = require("express-edge");
 const express = require("express");
 const edge = require("edge.js");
@@ -28,7 +29,7 @@ const logoutController = require("./controllers/logout");
 
 const app = new express();
 
-mongoose.connect("mongodb://localhost/BlogNodeJS", {
+mongoose.connect(process.env.DB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
@@ -36,16 +37,16 @@ mongoose.connect("mongodb://localhost/BlogNodeJS", {
 app.use(connectFlash());
 
 cloudinary.config({
-  api_key: "868465169581125",
-  api_secret: "OSvye0stjoRmw7mGtJ1dEhG8jD4",
-  cloud_name: "antoine1410"
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_NAME
 });
 
 const mongoStore = connectMongo(expressSession);
 
 app.use(
   expressSession({
-    secret: "secret",
+    secret: process.env.EXPRESS_SESSION_KEY,
     store: new mongoStore({
       mongooseConnection: mongoose.connection
     })
@@ -97,6 +98,6 @@ app.get("/auth/logout", auth, logoutController);
 
 app.use((req, res) => res.render("not-found"));
 
-app.listen(4000, () => {
-  console.log("App listening on port 4000");
+app.listen(process.env.PORT, () => {
+  console.log(`App listening on port ${process.env.PORT}`);
 });

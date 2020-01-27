@@ -19,7 +19,6 @@ module.exports = (req, res) => {
           author: req.session.userId
         },
         (error, post) => {
-          console.log(post);
           res.redirect("/");
         }
       );
