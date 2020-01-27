@@ -84,7 +84,7 @@ app.post("/users/login", redirectIfAuthenticated, loginUserController);
 
 // Logout
 
-app.get("/auth/logout", logoutController);
+app.get("/auth/logout", redirectIfAuthenticated, logoutController);
 
 app.listen(4000, () => {
   console.log("App listening on port 4000");
