@@ -7,6 +7,7 @@ module.exports = (req, res) => {
         key => error.errors[key].message
       );
 
+      req.session.registrationErrors = registrationErrors;
       return res.redirect("/auth/register");
     }
     res.redirect("/");
