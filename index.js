@@ -23,6 +23,12 @@ const loginUserController = require("./controllers/loginUser");
 
 const app = new express();
 
+app.use(
+  expressSession({
+    secret: "secret"
+  })
+);
+
 mongoose.connect("mongodb://localhost/BlogNodeJS", {
   useUnifiedTopology: true,
   useNewUrlParser: true
