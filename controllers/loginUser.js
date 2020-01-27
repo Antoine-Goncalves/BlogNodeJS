@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const User = require("../database/models/User");
 
 module.exports = (req, res) => {
@@ -7,6 +8,16 @@ module.exports = (req, res) => {
   User.findOne({ email }, (error, user) => {
     if (user) {
       // compare user password.
+
+      bcrypt.compare(password, user.password, (error, result) => {
+        if (same) {
+          // store user session
+
+          res.direct("/");
+        } else {
+          res.redirect("/auth/login");
+        }
+      });
     }
   });
 
