@@ -86,6 +86,10 @@ app.post("/users/login", redirectIfAuthenticated, loginUserController);
 
 app.get("/auth/logout", redirectIfAuthenticated, logoutController);
 
+// Error
+
+app.use((req, res) => res.render("not-found"));
+
 app.listen(4000, () => {
   console.log("App listening on port 4000");
 });
