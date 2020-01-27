@@ -8,7 +8,8 @@ module.exports = (req, res) => {
     Post.create(
       {
         ...req.body,
-        image: `/post/${image.name}`
+        image: `/post/${image.name}`,
+        user_id: req.session.userId
       },
       (error, post) => {
         res.redirect("/");
