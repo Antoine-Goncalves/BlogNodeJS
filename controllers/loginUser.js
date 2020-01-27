@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         if (same) {
           // store user session
 
-          res.direct("/");
+          res.redirect("/");
         } else {
           res.redirect("/auth/login");
         }
