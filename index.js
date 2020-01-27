@@ -1,6 +1,7 @@
 const { engine } = require("express-edge");
 const express = require("express");
 const edge = require("edge.js");
+const cloudinary = require("cloudinary");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
