@@ -18,6 +18,8 @@ module.exports = (req, res) => {
           res.redirect("/auth/login");
         }
       });
+    } else {
+      return res.redirect("/auth/login");
     }
   });
 
