@@ -50,16 +50,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const storePost = require("./middleware/storePost");
 const auth = require("./middleware/auth");
 
-app.use("/post/store", storePost);
-
 app.set("views", `${__dirname}/views`);
 
 app.get("/", homePageController);
 
 // Post
 
-app.get("/post/new", createPostController);
-app.post("/post/store", storePostController);
+app.get("/post/new", auth, createPostController);
+app.post("/post/store", storePost, storePostController);
 app.get("/post/:id", getPostController);
 
 // Register
