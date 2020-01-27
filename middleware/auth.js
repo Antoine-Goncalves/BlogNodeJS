@@ -1,3 +1,5 @@
+const User = require("../database/models/User");
+
 module.exports = (req, res, next) => {
   // fetch user from db
   // verify user
