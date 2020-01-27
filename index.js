@@ -52,6 +52,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const storePost = require("./middleware/storePost");
 const auth = require("./middleware/auth");
+const redirectIfAuthenticated = require("./middleware/redirectifAuthenticated");
 
 app.set("views", `${__dirname}/views`);
 
