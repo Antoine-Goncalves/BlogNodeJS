@@ -23,6 +23,7 @@ const createUserController = require("./controllers/createUser");
 const storeUserController = require("./controllers/storeUser");
 const loginController = require("./controllers/login");
 const loginUserController = require("./controllers/loginUser");
+const logoutController = require("./controllers/logout");
 
 const app = new express();
 
@@ -80,6 +81,10 @@ app.post("/users/register", redirectIfAuthenticated, storeUserController);
 
 app.get("/auth/login", redirectIfAuthenticated, loginController);
 app.post("/users/login", redirectIfAuthenticated, loginUserController);
+
+// Logout
+
+app.get("/auth/logout", logoutController);
 
 app.listen(4000, () => {
   console.log("App listening on port 4000");
