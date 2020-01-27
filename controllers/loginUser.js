@@ -1,3 +1,5 @@
 const User = require("../database/models/User");
 
-module.exports = (req, res) => {};
+module.exports = (req, res) => {
+  res.redirect("/");
+};
