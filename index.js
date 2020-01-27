@@ -56,6 +56,7 @@ app.post("/users/register", storeUserController);
 // Login
 
 app.get("/auth/login", loginController);
+app.post("/auth/login", loginUserController);
 
 app.listen(4000, () => {
   console.log("App listening on port 4000");
