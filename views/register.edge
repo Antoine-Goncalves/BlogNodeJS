@@ -37,19 +37,19 @@
                     <div class="form-group floating-label-form-group controls">
                         <label>Username</label>
 
-                    <input type="text" placeholder="Username" value="{{ data.username }}" name="username" class="form-control">
+                    <input type="text" placeholder="Username" value="{{ data.username || "" }}" name="username" class="form-control">
                     </div>
 
                     <div class="form-group floating-label-form-group controls">
                         <label>Email</label>
 
-                        <input type="email" placeholder="Email" value="{{ data.email }}" name="email" class="form-control">
+                        <input type="email" placeholder="Email" value="{{ data.email || "" }}" name="email" class="form-control">
                     </div>
                     
                     <div class="form-group floating-label-form-group controls">
                         <label>Password</label>
 
-                        <input type="password" placeholder="Password" value="{{ data.password }}" name="password" class="form-control">
+                        <input type="password" placeholder="Password" value="{{ data.password || "" }}" name="password" class="form-control">
                     </div>
                 </div>
 
