@@ -35,6 +35,12 @@ mongoose.connect("mongodb://localhost/BlogNodeJS", {
 
 app.use(connectFlash());
 
+cloudinary.config({
+  api_key: "868465169581125",
+  api_secret: "OSvye0stjoRmw7mGtJ1dEhG8jD4",
+  cloud_name: "antoine1410"
+});
+
 const mongoStore = connectMongo(expressSession);
 
 app.use(
