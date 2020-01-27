@@ -84,7 +84,7 @@ app.post("/users/login", redirectIfAuthenticated, loginUserController);
 
 // Logout
 
-app.get("/auth/logout", redirectIfAuthenticated, logoutController);
+app.get("/auth/logout", auth, logoutController);
 
 // Error
 
