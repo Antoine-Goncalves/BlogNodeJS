@@ -24,6 +24,11 @@ const loginUserController = require("./controllers/loginUser");
 
 const app = new express();
 
+mongoose.connect("mongodb://localhost/BlogNodeJS", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+});
+
 const mongoStore = connectMongo(expressSession);
 
 app.use(
@@ -34,11 +39,6 @@ app.use(
     })
   })
 );
-
-mongoose.connect("mongodb://localhost/BlogNodeJS", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-});
 
 app.use(fileUpload());
 app.use(express.static("public"));
