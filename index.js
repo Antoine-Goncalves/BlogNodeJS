@@ -18,6 +18,7 @@ const getPostController = require("./controllers/getPost");
 const createUserController = require("./controllers/createUser");
 const storeUserController = require("./controllers/storeUser");
 const loginController = require("./controllers/login");
+const loginUserController = require("./controllers/loginUser");
 
 const app = new express();
 
