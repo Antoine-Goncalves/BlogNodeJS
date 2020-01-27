@@ -4,7 +4,11 @@ module.exports = (req, res) => {
   const { email, password } = req.body;
   // try to find the user
 
-  // compare user password.
+  User.findOne({ email }, (error, user) => {
+    if (user) {
+      // compare user password.
+    }
+  });
 
   // if user password is correct, then, login user.
 
