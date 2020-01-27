@@ -57,7 +57,7 @@ app.get("/", homePageController);
 // Post
 
 app.get("/post/new", auth, createPostController);
-app.post("/post/store", storePost, storePostController);
+app.post("/post/store", auth, storePost, storePostController);
 app.get("/post/:id", getPostController);
 
 // Register
