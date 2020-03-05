@@ -1,1 +1,1 @@
-# Blog node JS test
+# Blog full node JS
